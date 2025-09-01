@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0" />
   <title>KHABAR — Свитер</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="icon" href="./logo.png" type="image/png">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: #000; color: #f0f0f0; line-height: 1.6; padding: 20px; min-height: 100vh; }
@@ -46,14 +46,14 @@
       Не продается в магазинах.<br>
       Заявка — единственная возможность.
     </p>
-    <form onsubmit="alert('Заявка принята. Свяжемся в течение 24 часов.'); return false;">
+    <form onsubmit="event.preventDefault(); sendToTelegram(this);">
       <div class="form-group">
         <label>Телефон или Telegram</label>
-        <input type="text" placeholder="@username или +7..." required />
+        <input type="text" name="contact" placeholder="@username или +7..." required />
       </div>
       <div class="form-group">
         <label>Размер</label>
-        <select required>
+        <select name="size" required>
           <option value="">Выберите</option>
           <option value="S">S</option>
           <option value="M">M</option>
@@ -63,6 +63,39 @@
       </div>
       <button type="submit">Оставить заявку</button>
     </form>
+    <script>
+    function sendToTelegram(form) {
+      const token = '8318288950:AAEt-784kG9tUbQbqQVO43yYVhIjn9Y-VrI'; // ← Например: 1234567890:AAHd8s9d8s9d8s9d8s9d8s9d8s9d8s9d8s9
+      const chatId = '511104157';   // ← Например: 123456789
+      const { contact, size } = form;
+
+      const message = `
+    📦 <b>Новая заявка на свитер</b>
+    📞 Контакт: ${contact.value}
+    📏 Размер: ${size.value}
+    ⏰ Время: ${new Date().toLocaleString('ru-RU')}
+      `;
+
+      const url = `https://api.telegram.org/bot${token}/sendMessage`;
+
+      fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: message,
+          parse_mode: 'HTML'
+        })
+      })
+      .then(() => {
+        alert('Заявка отправлена! Свяжемся в течение 24 часов.');
+        form.reset();
+      })
+      .catch(() => {
+        alert('Не удалось отправить. Напишите нам: @KHBR.io');
+      });
+    }
+    </script>
     <div class="footer">
       <p>© 2025 KHABAR. Все права защищены.</p>
       <p>Follow us: @KHBR.io</p>
