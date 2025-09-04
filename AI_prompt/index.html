@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Получи промт ИИ для сайта</title>
+  <meta name="description" content="Создай свой сайт с помощью ИИ — получи персональный промт и настрой уведомления в Telegram">
+  <style>
+    /* Минималистичный стиль с оливковыми акцентами */
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #fafafa;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 28px;
+      color: #222;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-weight: 400;
+      color: #555;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    .icon {
+      font-size: 60px;
+      margin: 20px 0;
+      color: #556B2F;
+    }
+    .benefits {
+      text-align: left;
+      margin: 30px auto;
+      max-width: 350px;
+      font-size: 16px;
+      color: #444;
+    }
+    .benefits li {
+      margin: 10px 0;
+    }
+    form {
+      margin-top: 30px;
+    }
+    input, select {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #556B2F;
+      color: white;
+      border: none;
+      padding: 16px 24px;
+      font-size: 17px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 20px 0;
+      width: 100%;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #4a5a2a;
+    }
+    .success {
+      display: none;
+      padding: 20px;
+      background-color: #f0f8f0;
+      border-radius: 10px;
+      color: #333;
+      margin-top: 20px;
+      border: 1px solid #d0e0d0;
+    }
+    .footer {
+      margin-top: 50px;
+      font-size: 13px;
+      color: #888;
+    }
+    .footer a {
+      color: #556B2F;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>✨ Создай свой сайт с помощью ИИ</h1>
+    <h2>Получи персональный промт, который сгенерирует одностраничник под твои цели</h2>
+    
+    <div class="icon">🤖</div>
+
+    <ul class="benefits">
+      <li>✅ Подходит для бизнеса, портфолио, продаж, лендингов</li>
+      <li>✅ Промт адаптируется под твою цель</li>
+      <li>✅ Настроим уведомления в Telegram</li>
+      <li>✅ Всё бесплатно — просто заполни форму</li>
+    </ul>
+
+    <!-- Форма отправляется через Telegram Bot API -->
+    <form id="lead-form">
+      <input type="text" name="name" placeholder="Как тебя зовут?" required />
+      
+      <input type="text" name="telegram" placeholder="@yourname в Telegram" required />
+      
+      <select name="goal" required>
+        <option value="" disabled selected>Цель сайта</option>
+        <option value="продажи">Продажи товаров/услуг</option>
+        <option value="портфолио">Портфолио или кейсы</option>
+        <option value="визитка">Онлайн-визитка</option>
+        <option value="рассылка">Сбор подписчиков</option>
+        <option value="другое">Другое</option>
+      </select>
+
+      <button type="submit">🟢 Получить промт →</button>
+    </form>
+
+    <!-- Сообщение об успехе -->
+    <div class="success" id="success-message">
+      ✅ Отлично! Твой промт уже в пути.<br>
+      Проверь Telegram — скоро получишь сообщение с инструкцией и настройкой уведомлений.
+    </div>
+
+    <div class="footer">
+      Связь через <a href="https://t.me/yourbotname" target="_blank">@yourbotname</a><br>
+      Данные не передаются третьим лицам<br>
+      Создано с помощью ИИ для креаторов и предпринимателей
+    </div>
+  </div>
+
+  <script>
+    // ЗАМЕНИ ЭТИ ДВЕ СТРОКИ
+    const BOT_TOKEN = '8318288950:AAEt-784kG9tUbQbqQVO43yYVhIjn9Y-VrI';  // Например: '609812345:AAH_abc123xyz...'
+    const CHAT_ID = '511104157';      // Например: '123456789'
+
+    document.getElementById("lead-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const form = this;
+  const name = form.name.value;
+  const telegram = form.telegram.value;
+  const goal = form.goal.value;
+
+  // Формируем чистое сообщение (БЕЗ encodeURIComponent внутри!)
+  const message = `
+📦 <b>Новая заявка на промт ИИ</b>
+
+Имя: <code>${name}</code>
+Telegram: <code>${telegram}</code>
+Цель сайта: <b>${goal}</b>
+
+Время: ${new Date().toLocaleString('ru-RU')}
+  `.trim();
+
+  // Отправляем, КОДИРУЯ ТОЛЬКО весь текст целиком
+  fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: `chat_id=${CHAT_ID}&text=${encodeURIComponent(message)}&parse_mode=HTML`
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.ok) {
+      form.style.display = "none";
+      document.getElementById("success-message").style.display = "block";
+      
+      setTimeout(() => {
+        window.location.href = `https://t.me/yourbotname`;
+      }, 3000);
+    } else {
+      alert('Ошибка: ' + data.description);
+    }
+  })
+  .catch(err => {
+    console.error('Ошибка отправки:', err);
+    alert('Не удалось отправить. Напишите нам в Telegram.');
+  });
+});
+  </script>
+</body>
+</html>
