@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Мастер-класс по лепке из глины</title>
+  <meta name="description" content="Запишись на мастер-класс по гончарному делу — создай свою чашу вручную">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Open+Sans&display=swap');
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #F5F5DC; /* Бежевый — как глина */
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: #556B2F;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+    h2 {
+      font-weight: 400;
+      color: #666;
+      font-size: 17px;
+      margin-bottom: 30px;
+    }
+    .icon {
+      font-size: 60px;
+      margin: 20px 0;
+      color: #A0522D;
+    }
+    .details {
+      text-align: left;
+      margin: 25px auto;
+      max-width: 380px;
+      font-size: 16px;
+      color: #444;
+    }
+    .details li {
+      margin: 8px 0;
+    }
+    .note {
+      font-size: 14px;
+      color: #666;
+      margin: 15px 0;
+    }
+    form {
+      margin-top: 30px;
+    }
+    input {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border: 1px solid #D2B48C;
+      border-radius: 8px;
+      font-size: 16px;
+      box-sizing: border-box;
+      background-color: #fff;
+      font-family: 'Open Sans', sans-serif;
+    }
+    button {
+      background-color: #556B2F;
+      color: white;
+      border: none;
+      padding: 16px;
+      font-size: 17px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 20px 0;
+      width: 100%;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #4a5a2a;
+    }
+    .success {
+      display: none;
+      padding: 20px;
+      background-color: #f8fff8;
+      border: 1px solid #e0f0e0;
+      border-radius: 10px;
+      color: #333;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+    .footer {
+      margin-top: 50px;
+      font-size: 13px;
+      color: #888;
+    }
+    .footer a {
+      color: #556B2F;
+      text-decoration: none;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1> Лепка из глины вручную</h1>
+    <h2>Мастер-класс в гончарной мастерской — создай свою чашу</h2>
+    
+    <div class="icon">🏺</div>
+
+    <ul class="details">
+      <li>📅 Дата: каждую субботу в 11:00</li>
+      <li>⏰ Длительность: 3 часа</li>
+      <li>📍 Локация: ул. Глиняная, 17 (в центре города)</li>
+      <li>👥 До 6 человек — уютно и по-домашнему</li>
+      <li>🎁 Всё включено: глина, обжиг, глазурь, чай</li>
+    </ul>
+
+    <p class="note">
+      После записи — пришлю детали и адрес.  
+      <strong>Места ограничены.</strong>
+    </p>
+
+    <!-- Форма отправки в Telegram -->
+    <form id="mc-form">
+      <input type="text" name="name" placeholder="Твоё имя" required />
+      <input type="text" name="phone" placeholder="Телефон для связи" required />
+      <select name="date" required>
+        <option value="" disabled selected>Выбери дату</option>
+        <option value="Суббота, 14 сентября">Суббота, 14 сентября</option>
+        <option value="Суббота, 21 сентября">Суббота, 21 сентября</option>
+        <option value="Суббота, 28 сентября">Суббота, 28 сентября</option>
+        <option value="Другая дата">Другая дата</option>
+      </select>
+      <button type="submit">Записаться на мастер-класс →</button>
+    </form>
+
+    <div class="success" id="success-message">
+      ✅ Отлично!  
+      Скоро свяжусь с тобой в Telegram, чтобы подтвердить запись.  
+      <br><br>
+      Жду с нетерпением — будет тепло и по-домашнему.
+    </div>
+
+    <div class="footer">
+      Ведёт мастер: Анна<br>
+      Связь через <a href="https://t.me/yourbotname" target="_blank">@yourbotname</a>
+    </div>
+  </div>
+
+  <script>
+    // ЗАМЕНИ НА СВОИ ДАННЫЕ
+    const BOT_TOKEN = 'YOUR_BOT_TOKEN';  // Например: '609812345:AAH_abc123...'
+    const CHAT_ID = 'YOUR_USER_ID';      // Например: '123456789'
+
+    document.getElementById("mc-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const form = this;
+      const name = form.name.value;
+      const phone = form.phone.value;
+      const date = form.date.value;
+
+      const message = `
+🫙 <b>Новая запись на мастер-класс</b>
+
+Имя: <code>${name}</code>
+Телефон: <code>${phone}</code>
+Дата: <b>${date}</b>
+
+Время: ${new Date().toLocaleString('ru-RU')}
+      `.trim();
+
+      fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `chat_id=${CHAT_ID}&text=${encodeURIComponent(message)}&parse_mode=HTML`
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.ok) {
+          form.style.display = "none";
+          document.getElementById("success-message").style.display = "block";
+          setTimeout(() => {
+            window.location.href = "https://t.me/yourbotname";
+          }, 3000);
+        } else {
+          alert('Ошибка: ' + data.description);
+        }
+      })
+      .catch(() => {
+        alert('Не удалось отправить. Напиши мне в Telegram.');
+      });
+    });
+  </script>
+</body>
+</html>
