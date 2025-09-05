@@ -18,7 +18,7 @@
     .container {
       max-width: 480px;
       margin: 0 auto;
-      padding: 30px 20px;
+      padding: 0px 20px;
       text-align: center;
     }
     h1 {
@@ -93,9 +93,78 @@
       color: #556B2F;
       text-decoration: none;
     }
+    .examples-section {
+  margin-top: 36px;
+  padding: 0 16px;
+}
+
+/* Ограничиваем ширину и центрируем */
+.links-carousel-wrapper {
+  max-width: 500px; /* Ширина как у текста */
+  margin: 0 auto; /* Центрирование */
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px 0;
+  box-sizing: border-box;
+  scrollbar-width: none;
+}
+
+.links-carousel-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.links-carousel {
+  display: flex;
+  gap: 12px;
+  min-height: 60px;
+  align-items: center;
+  padding: 0 4px;
+}
+
+.text-link-card {
+  flex: 0 0 auto;
+  padding: 12px 18px;
+  background-color: #f8fff8;
+  color: #556B2F;
+  border: 1px solid #e0f0e0;
+  border-radius: 12px;
+  font-size: 15px;
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(85, 107, 47, 0.08);
+}
+
+.text-link-card:hover {
+  background-color: #e8f5e8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(85, 107, 47, 0.12);
+}
   </style>
 </head>
 <body>
+  <!-- Примеры работ: горизонтальная карусель -->
+<div class="examples-section">
+  <h3 style="font-size: 19px; color: #333; margin-bottom: 12px; text-align: center;">
+    Примеры сайт-лендингов от моих клиентов
+  </h3>
+  <p style="font-size: 14px; color: #666; margin-bottom: 12px; text-align: center;">
+    Пролистай → Все созданы с помощью ИИ
+  </p>
+
+  <!-- Контейнер с лентой -->
+  <div class="links-carousel-wrapper">
+    <div class="links-carousel">
+      <a href="https://khalisso.github.io/KHABAR/sweater/" target="_blank" class="text-link-card">🧥 khabar.io</a>
+      <a href="https://khalisso.github.io/KHABAR/GLINA/" target="_blank" class="text-link-card">🏺 GLINA.art</a>
+      <a href="https://kurs.pro" target="_blank" class="text-link-card">📚 kurs.pro</a>
+      <a href="https://vizitka.me" target="_blank" class="text-link-card">💼 vizitka.me</a>
+      <a href="https://chai.life" target="_blank" class="text-link-card">☕ chai.life</a>
+    </div>
+  </div>
+</div>
   <div class="container">
     <h1>✨ Создай свой сайт с помощью ИИ</h1>
     <h2>Получи персональный промт, который сгенерирует одностраничник под твои цели</h2>
@@ -106,14 +175,14 @@
       <li>✅ Подходит для бизнеса, портфолио, продаж, лендингов</li>
       <li>✅ Промт адаптируется под твою цель</li>
       <li>✅ Настроим уведомления в Telegram</li>
-      <li>✅ Всё бесплатно — просто заполни форму</li>
+      <li>✅ Получи бесплатно - промт и инструкцию</li>
     </ul>
 
     <!-- Форма отправляется через Telegram Bot API -->
     <form id="lead-form">
-      <input type="text" name="name" placeholder="Как тебя зовут?" required />
+      <input type="text" name="name" placeholder="Имя" required />
       
-      <input type="text" name="telegram" placeholder="@yourname в Telegram" required />
+      <input type="text" name="telegram" placeholder="@yourname в Telegram или номер телефона" required />
       
       <select name="goal" required>
         <option value="" disabled selected>Цель сайта</option>
@@ -124,7 +193,7 @@
         <option value="другое">Другое</option>
       </select>
 
-      <button type="submit">🟢 Получить промт →</button>
+      <button type="submit">✅ Получить промт →</button>
     </form>
 
     <!-- Сообщение об успехе -->
@@ -134,7 +203,7 @@
     </div>
 
     <div class="footer">
-      Связь через <a href="https://t.me/yourbotname" target="_blank">@yourbotname</a><br>
+      Связь через <a href="https://t.me/halliilll" target="_blank">@halliilll</a><br>
       Данные не передаются третьим лицам<br>
       Создано с помощью ИИ для креаторов и предпринимателей
     </div>
@@ -179,7 +248,7 @@ Telegram: <code>${telegram}</code>
       document.getElementById("success-message").style.display = "block";
       
       setTimeout(() => {
-        window.location.href = `https://t.me/yourbotname`;
+        window.location.href = `https://t.me/halliilll`;
       }, 3000);
     } else {
       alert('Ошибка: ' + data.description);
