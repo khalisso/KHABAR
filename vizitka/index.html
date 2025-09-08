@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Моя визитка</title>
+  <meta name="description" content="Гончар • Сайты с ИИ • Мастер-классы">
+  <!-- Favicon с инициалами -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -25 100 100'><text y='0.85em' font-size='85' font-family='Inter, sans-serif'>Hi</text></svg>">
+  <!-- Шрифты: тёплый заголовок + чистый основной -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background-color: #fdfbf9; /* Тёплый фон, как бумага */
+      color: #222;
+      font-weight: 300;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 60px 20px 40px;
+      text-align: center;
+    }
+    .container {
+      max-width: 480px;
+      width: 100%;
+    }
+    .logo {
+      font-size: 56px;
+      margin-bottom: 16px;
+      user-select: none;
+      animation: breathe 2s ease-in-out infinite;
+    }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: #556B2F;
+    }
+    .greeting {
+      font-size: 17px;
+      color: #666;
+      margin-bottom: 24px;
+    }
+    .tagline {
+      font-size: 16px;
+      color: #777;
+      margin-bottom: 40px;
+      font-weight: 300;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 340px;
+      margin: 0 auto;
+    }
+    .social-btn {
+      padding: 14px 20px;
+      background: white;
+      color: #333;
+      text-decoration: none;
+      font-size: 16px;
+      border: 1px solid #e8e8e0;
+      border-radius: 10px; /* Мягкие углы */
+      transition: all 0.3s ease;
+      font-weight: 400;
+    }
+    .social-btn:hover {
+      border-color: #556B2F;
+      color: #556B2F;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(85, 107, 47, 0.1);
+    }
+    .footer {
+      margin-top: 60px;
+      font-size: 13px;
+      color: #aaa;
+    }
+    .footer a {
+      color: #556B2F;
+      text-decoration: none;
+      font-weight: 400;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">📇</div>
+    <h1>Связь со мной</h1>
+    <p class="greeting">Привет, я Анна!</p>
+    <p class="tagline">Занимаюсь гончарным делом и провожу тёплые мастер-классы.</p>
+
+    <div class="social-links">
+      <a href="https://t.me/yourbotname" target="_blank" class="social-btn">📩 Написать в Telegram</a>
+      <a href="https://wa.me/79991234567" target="_blank" class="social-btn">💬 WhatsApp</a>
+      <a href="https://instagram.com/yourprofile" target="_blank" class="social-btn">📸 Instagram</a>
+      <a href="https://youtube.com/@yourchannel" target="_blank" class="social-btn">▶️ YouTube</a>
+      <a href="https://khalisso.github.io/KHABAR/GLINA/" target="_blank" class="social-btn">🌐 Мой сайт</a>
+    </div>
+
+    <div class="footer">
+      2025 • Сделано с заботой и глиной
+    </div>
+  </div>
+</body>
+</html>
