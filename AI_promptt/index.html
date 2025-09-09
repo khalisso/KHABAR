@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Получи промт ИИ для сайта</title>
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <meta name="description" content="Создай свой сайт с помощью ИИ — получи персональный промт и настрой уведомления в Telegram">
+  <style>
+    /* Минималистичный стиль с оливковыми акцентами */
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #fafafa;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 0px 20px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 28px;
+      color: #222;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-weight: 400;
+      color: #555;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    .icon {
+      font-size: 60px;
+      margin: 20px 0;
+      color: #556B2F;
+    }
+    .benefits {
+      text-align: left;
+      margin: 30px auto;
+      max-width: 350px;
+      font-size: 16px;
+      color: #444;
+    }
+    .benefits li {
+      margin: 10px 0;
+    }
+    form {
+      margin-top: 30px;
+    }
+    input, select {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #556B2F;
+      color: white;
+      border: none;
+      padding: 16px 24px;
+      font-size: 17px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 20px 0;
+      width: 100%;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #4a5a2a;
+    }
+    .success {
+      display: none;
+      padding: 20px;
+      background-color: #f0f8f0;
+      border-radius: 10px;
+      color: #333;
+      margin-top: 20px;
+      border: 1px solid #d0e0d0;
+    }
+    .footer {
+      margin-top: 50px;
+      font-size: 13px;
+      color: #888;
+    }
+    .footer a {
+      color: #556B2F;
+      text-decoration: none;
+    }
+
+    /* Карусель ссылок */
+    .examples-section {
+      margin-top: 36px;
+      padding: 0 16px;
+    }
+    .links-carousel-wrapper {
+      max-width: 500px;
+      margin: 0 auto;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding: 10px 0;
+      box-sizing: border-box;
+      scrollbar-width: none;
+    }
+    .links-carousel-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+    .links-carousel {
+      display: flex;
+      gap: 12px;
+      min-height: 60px;
+      align-items: center;
+      padding: 0 4px;
+    }
+    .text-link-card {
+      flex: 0 0 auto;
+      padding: 12px 18px;
+      background-color: #f8fff8;
+      color: #556B2F;
+      border: 1px solid #e0f0e0;
+      border-radius: 12px;
+      font-size: 15px;
+      text-decoration: none;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 6px rgba(85, 107, 47, 0.08);
+    }
+    .text-link-card:hover {
+      background-color: #e8f5e8;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(85, 107, 47, 0.12);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Примеры работ -->
+  <div class="examples-section">
+    <h3 style="font-size: 19px; color: #333; margin-bottom: 12px; text-align: center;">
+      Примеры сайт-лендингов от моих клиентов
+    </h3>
+    <p style="font-size: 14px; color: #666; margin-bottom: 12px; text-align: center;">
+      Пролистай → Все созданы с помощью ИИ
+    </p>
+    <div class="links-carousel-wrapper">
+      <div class="links-carousel">
+        <a href="https://khalisso.github.io/KHABAR/sweater/" target="_blank" class="text-link-card">🧥 khabar.io</a>
+        <a href="https://khalisso.github.io/KHABAR/GLINA/" target="_blank" class="text-link-card">🏺 GLINA.art</a>
+        <a href="https://kurs.pro" target="_blank" class="text-link-card">📚 kurs.pro</a>
+        <a href="https://vizitka.me" target="_blank" class="text-link-card">💼 vizitka.me</a>
+        <a href="https://chai.life" target="_blank" class="text-link-card">☕ chai.life</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>✨ Создай свой сайт с помощью ИИ</h1>
+    <h2>Получи персональный промт, который сгенерирует одностраничник под твои цели</h2>
+    
+    <div class="icon">🤖</div>
+
+    <ul class="benefits">
+      <li>✅ Подходит для бизнеса, портфолио, продаж, лендингов</li>
+      <li>✅ Промт адаптируется под твою цель</li>
+      <li>✅ Настроим уведомления в Telegram</li>
+      <li>✅ Получи бесплатно - промт и инструкцию</li>
+    </ul>
+
+    <!-- Форма отправки только в Google Таблицу -->
+    <form id="lead-form">
+      <input type="text" name="name" placeholder="Имя" required />
+      
+      <input type="text" name="telegram" placeholder="@yourname в Telegram или номер телефона" required />
+      
+      <select name="goal" required>
+        <option value="" disabled selected>Цель сайта</option>
+        <option value="продажи">Продажи товаров/услуг</option>
+        <option value="портфолио">Портфолио или кейсы</option>
+        <option value="визитка">Онлайн-визитка</option>
+        <option value="рассылка">Сбор подписчиков</option>
+        <option value="другое">Другое</option>
+      </select>
+
+      <button type="submit">✅ Получить промт →</button>
+    </form>
+
+    <!-- Сообщение об успехе -->
+    <div class="success" id="success-message">
+      ✅ Отлично! Твой промт уже в обработке.<br>
+      Скоро получишь инструкцию и настройку уведомлений.
+    </div>
+
+    <div class="footer">
+      Связь через <a href="https://t.me/halliilll" target="_blank">@halliilll</a><br>
+      Данные не передаются третьим лицам<br>
+      Создано с помощью ИИ для креаторов и предпринимателей
+    </div>
+  </div>
+
+  <script>
+    // 🔗 Замените на URL вашего Google Apps Script (веб-приложение)
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzu4i_C2wChs4MXCqEMpdRGMLa4tAqpXplmXci-U-Wu3p3cEBsf-pshOkKW8TyjIJG-/exec';
+  
+    document.getElementById("lead-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+  
+      const form = this;
+      const name = form.name.value;
+      const telegram = form.telegram.value;
+      const goal = form.goal.value;
+      const time = new Date().toLocaleString('ru-RU');
+  
+      // Подготавливаем данные
+      const formData = new URLSearchParams();
+      formData.append('name', name);
+      formData.append('telegram', telegram);
+      formData.append('goal', goal);
+      formData.append('time', time);
+  
+      // Отправляем в Google Таблицу
+      fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors', // Обязательно для Google Apps Script
+        body: formData
+      })
+      .then(() => {
+        form.style.display = "none";
+        document.getElementById("success-message").style.display = "block";
+  
+        // Через 3 секунды — переход в Telegram
+        setTimeout(() => {
+          window.location.href = "https://t.me/halliilll";
+        }, 3000);
+      })
+      .catch(err => {
+        console.error('Ошибка:', err);
+        alert('Данные отправлены частично. Напишите нам в Telegram.');
+      });
+    });
+  </script>
+</body>
+</html>
